@@ -6,8 +6,8 @@ WORKDIR /app
 # package.json과 package-lock.json 복사
 COPY package*.json ./
 
-# 프로덕션 의존성만 설치
-RUN npm ci --only=production && npm cache clean --force
+# 프로덕션 의존성만 설치 (npm install 사용)
+RUN npm install --omit=dev && npm cache clean --force
 
 # 애플리케이션 소스 복사
 COPY server.js ./
