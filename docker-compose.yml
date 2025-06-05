@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  cors-proxy:
+    build: 
+      context: ./proxy-server
+      dockerfile: Dockerfile
+    container_name: logii-cors-proxy
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # Windows 볼륨 마운트 (개발 시 유용)
+    volumes:
+      - ./proxy-server:/app:ro
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    driver: bridge
