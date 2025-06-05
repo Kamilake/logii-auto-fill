@@ -1,17 +1,17 @@
 // ==UserScript==
 // @name         Logii 택배 자동 입력
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.0.1
 // @description  Logii 택배 예약 시 자동 입력 및 체크박스 자동 체크
 // @author       You
 // @match        https://www.logii.com/Reservation/*
 // @match        https://www.logii.com/LogiiPay/Secure_Keypad.pms?tp=1
 // @match        https://m.logii.com/interface/keypad/interface/keypad.asp*
 // @grant        none
+// @run-at       document-end
 // ==/UserScript==
 
 (function() {
-    'use strict';
 
     // 현재 URL 확인
     const currentUrl = window.location.href;
@@ -146,7 +146,7 @@ const numberTemplates = {
 
             const originalUrl = urlMatch[1];
             // 프록시 서버 사용
-            const proxyUrl = `http://localhost:3000/proxy?url=${encodeURIComponent(originalUrl)}`;
+            const proxyUrl = `https://old.stepfit.co.kr/proxy?url=${encodeURIComponent(originalUrl)}`;
             
             console.log('원본 키패드 이미지 URL:', originalUrl);
             console.log('프록시 URL 사용:', proxyUrl);
