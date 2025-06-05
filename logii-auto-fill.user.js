@@ -203,7 +203,7 @@ const numberTemplates = {
                     console.error('키패드 이미지 로드 실패:', e);
                     console.error('프록시 서버가 실행 중인지 확인하세요');
                     console.error('Windows에서 Docker 실행: docker-compose up -d');
-                    console.error('또는 직접 실행: cd proxy-server && npm install && npm start');
+                    console.error('또는 직접 실행: cd logii-auto-fill && npm install && npm start');
                     resolve(null);
                 };
                 // 프록시 URL 사용

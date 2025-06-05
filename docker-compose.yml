@@ -3,7 +3,7 @@ version: '3.8'
 services:
   cors-proxy:
     build: 
-      context: ./proxy-server
+      context: .
       dockerfile: Dockerfile
     container_name: logii-cors-proxy
     ports:
@@ -17,9 +17,6 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
-    # Windows 볼륨 마운트 (개발 시 유용)
-    volumes:
-      - ./proxy-server:/app:ro
     networks:
       - proxy-network
 
